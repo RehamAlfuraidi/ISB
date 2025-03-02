@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لوحة التحكم</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="dashboard">
+        <h2>مرحبًا بك، <span id="userWelcome"></span>!</h2>
+        <button id="logout">تسجيل الخروج</button>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let user = localStorage.getItem("savedUser");
+            if (!user) {
+                window.location.href = "login.html";
+            } else {
+                document.getElementById("userWelcome").textContent = user;
+            }
+
+            document.getElementById("logout").addEventListener("click", function() {
+                localStorage.removeItem("savedUser");
+                window.location.href = "index.html";
+            });
+        });
+    </script>
+
+</body>
+</html
